@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // Backend API functions
 const sendOTP = async (studentId, email) => {
   try {
-    const response = await fetch('https://ieeebackend.netlify.app/api/auth/send-otp', {
+    const response = await fetch('http://localhost:5000/api/auth/send-login-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ studentId, email })
@@ -15,7 +15,7 @@ const sendOTP = async (studentId, email) => {
 };
 
 const verifyOTP = async (studentId, email, otp) => {
-  const response = await fetch('https://ieeebackend.netlify.app/api/auth/verify-otp', {
+  const response = await fetch('http://localhost:5000/api/auth/verify-login-otp', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ studentId, email, otp })
